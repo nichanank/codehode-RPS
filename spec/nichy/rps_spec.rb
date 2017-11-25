@@ -6,4 +6,7 @@ RSpec.describe Nichy::Rps do
   it "does something useful" do
     expect(Nichy::Rps::Rps.hello).to eq(true)
   end
+
+
+
 end

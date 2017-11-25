@@ -7,6 +7,7 @@ module Nichy
       def initialize
         puts "Welcome to the Rock, Paper, Scissors game! What's your name? "
         @name = STDIN.gets.chomp
+        puts "Hi #{@name}! Let's play..."
         @game_history = { :computer => 0, :player => 0, :draws => 0, :total_played => 0 }
         @valid_options = ["r", "rock", "p", "paper", "s", "scissors"]
       end
@@ -37,23 +38,23 @@ module Nichy
 
       def compare(user_choice, computer_choice)
         winner = ""
-        if user_choice == "r"
+        if user_choice == "r" || user_choice == "rock"
           case computer_choice
-          when "Rock"
+          when "r"
             @game_history[:draws] += 1
-          when "Paper"
+          when "p"
             @game_history[:computer] += 1
             winner = "Computer"
           else
             @game_history[:player] += 1
             winner = "Player"
           end
-        elsif user_choice == "p"
+        elsif user_choice == "p" || user_choice == "paper"
           case computer_choice
-          when "Rock"
+          when "r"
             @game_history[:computer] += 1
             winner = "Computer"
-          when "Paper"
+          when "p"
             @game_history[:draws] += 1
           else
             @game_history[:player] += 1
@@ -61,10 +62,10 @@ module Nichy
           end
         else
           case computer_choice
-          when "Rock"
+          when "r"
             @game_history[:computer] += 1
             winner = "Computer"
-          when "Paper"
+          when "p"
             @game_history[:player] += 1
             winner = "Player"
           else
@@ -74,18 +75,28 @@ module Nichy
         winner
       end
 
+      def play_again?
+        puts "Would you like to play again? [y/n]"
+        answer = gets.chomp.downcase
+        if answer != "y" && answer != "n"
+          puts "Please type y or n and press Enter"
+        end
+        answer == "y" ? true : false
+      end
+
       private
         def computer_play
           choice = rand(1..3)
           if choice == 1
-            computer_choice = "Rock"
+            computer_choice = "r"
           elsif choice == 2
-            computer_choice = "Paper"
+            computer_choice = "p"
           else
-            computer_choice = "Scissors"
+            computer_choice = "s"
           end
           computer_choice
         end
+
     end
   end
 end
