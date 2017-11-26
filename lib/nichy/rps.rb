@@ -24,11 +24,11 @@ module Nichy
           end
           puts "Computer plays #{computer_choice}"
           puts "..."
-          winner = GameCompare.compare(user_choice, computer_choice)
-          @game_history[winner] += 1
+          game_result = GameCompare.compare(user_choice, computer_choice)
+          @game_history[game_result] += 1
 
-          if winner != ""
-            puts "#{winner} wins!"
+          if game_result != :draw
+            puts "#{game_result} wins!"
           else
             puts "It's a tie!"
           end
