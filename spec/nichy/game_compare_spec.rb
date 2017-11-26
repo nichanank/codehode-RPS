@@ -28,7 +28,7 @@ RSpec.describe Nichy::Rps do
     end
     context 'when player play scissors' do
       context 'when computer play rock' do
-        it 'returns draw' do
+        it 'returns computer' do
           result = GameCompare.compare('s', 'r')
 
           expect(result).to eq(:computer)
@@ -36,7 +36,7 @@ RSpec.describe Nichy::Rps do
       end
 
       context 'when computer play scissors' do
-        it 'returns player' do
+        it 'returns draw' do
           result = GameCompare.compare('s', 's')
 
           expect(result).to eq(:draw)
@@ -44,7 +44,7 @@ RSpec.describe Nichy::Rps do
       end
 
       context 'when computer play paper' do
-        it 'returns computer' do
+        it 'returns player' do
           result = GameCompare.compare('s', 'p')
 
           expect(result).to eq(:player)
