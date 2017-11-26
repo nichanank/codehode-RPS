@@ -7,6 +7,6 @@ class GameCompare
   }
 
   def self.compare(player_choice, computer_choice)
-    GAME_COMPARE_MATRIX[player_choice.to_sym][computer_choice.to_sym]
+    GAME_COMPARE_MATRIX[player_choice][computer_choice]
   end
 end
