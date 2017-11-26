@@ -38,15 +38,22 @@ module Nichy
 
         puts @game_history
         puts "Your win rate was #{@game_history[:player] / @game_history[:total_played].to_f * 100}%"
+        play_again? ? play : return
       end
 
       def play_again?
         puts "Would you like to play again? [y/n]"
         answer = STDIN.gets.chomp.downcase
-        if answer != "y" && answer != "n"
+        while answer != "y" && answer != "n"
           puts "Please type y or n and press Enter"
+          answer = STDIN.gets.chomp.downcase
         end
-        answer == "y" ? true : false
+        if answer == "y"
+          @game_history.each { |k, v| @game_history[k] = 0 }
+          true
+        else
+          false
+        end
       end
 
       private
