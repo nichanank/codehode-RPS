@@ -8,17 +8,14 @@ A simple game of Rock, Paper, Scissors ran on the command line.
 From terminal, clone the repository using
 ```
 git clone https://github.com/nichanank/codehode-RPS.git
-
 ```
 Then navigate to the project folder
 ```
 cd codehode-RPS
-
 ```
 Run the program using
 ```
 bundle exec rake run
-
 ```
 
 ## Development
