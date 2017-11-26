@@ -49,15 +49,7 @@ module Nichy
 
       private
         def computer_play
-          choice = rand(1..3)
-          if choice == 1
-            computer_choice = "r"
-          elsif choice == 2
-            computer_choice = "p"
-          else
-            computer_choice = "s"
-          end
-          computer_choice
+          ["r", "p", "s"].sample
         end
     end
   end
