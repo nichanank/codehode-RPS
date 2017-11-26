@@ -1,37 +1,12 @@
 class GameCompare
-  def self.compare(user_choice, computer_choice)
-    result = ""
-    if user_choice == "r" || user_choice == "rock"
-      case computer_choice
-        when "r"
-          result = :draw
-        when "p"
-          result = :computer
-        else
-          result = :player
-      end
-    elsif user_choice == "p" || user_choice == "paper"
-      case computer_choice
-        when "r"
-          result = :player
-        when "p"
-          result = :draw
-        else
-          result = :computer
-      end
-    else
-      case computer_choice
-        when "r"
-          result = :computer
-        when "p"
-          result = :player
-        else
-          result = :draw
-      end
-    end
 
-    result
+  GAME_COMPARE_MATRIX = {
+      r: { r: :draw,  s: :player,  p: :computer },
+      s: { r: :computer,  s: :draw,  p: :player },
+      p: { r: :player,  s: :computer,  p: :draw }
+  }
+
+  def self.compare(player_choice, computer_choice)
+    GAME_COMPARE_MATRIX[player_choice.to_sym][computer_choice.to_sym]
   end
-
-
 end
