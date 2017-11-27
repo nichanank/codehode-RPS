@@ -14,7 +14,7 @@ module Nichy
         @name = STDIN.gets.chomp
         puts "Hi #{@name}! Let's play..."
 
-        while @game_history[:total_played] < 5
+        while @game_history[:total_played] < 30
           computer_choice = computer_play
           puts "Enter r, p, or s: "
           user_choice = STDIN.gets.chomp.downcase
